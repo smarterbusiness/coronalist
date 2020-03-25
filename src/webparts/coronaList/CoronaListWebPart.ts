@@ -18,6 +18,15 @@ export interface ICoronaListWebPartProps {
 
 export default class CoronaListWebPart extends BaseClientSideWebPart<ICoronaListWebPartProps> {
 
+  protected onInit(): Promise<void> {
+    return super.onInit().then(_ => {
+      // other init code may be present
+      sp.setup({
+        spfxContext: this.context
+      });
+    });
+  }
+
   public render(): void {
     const element: React.ReactElement<ICoronaListProps> = React.createElement(CoronaList, {});
 
@@ -52,14 +61,5 @@ export default class CoronaListWebPart extends BaseClientSideWebPart<ICoronaList
         }
       ]
     };
-  }
-
-  protected onInit(): Promise<void> {
-    return super.onInit().then(_ => {
-      // other init code may be present
-      sp.setup({
-        spfxContext: this.context
-      });
-    });
   }
 }
