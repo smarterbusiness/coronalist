@@ -1,4 +1,4 @@
-@import '~office-ui-fabric-react/dist/sass/References.scss';
+@import "~office-ui-fabric-react/dist/sass/References.scss";
 
 .coronaList {
   .container {
@@ -51,7 +51,8 @@
     // Basic Button
     outline: transparent;
     position: relative;
-    font-family: "Segoe UI WestEuropean","Segoe UI",-apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue",sans-serif;
+    font-family: "Segoe UI WestEuropean", "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue",
+      sans-serif;
     -webkit-font-smoothing: antialiased;
     font-size: $ms-font-size-m;
     font-weight: $ms-font-weight-regular;
@@ -70,5 +71,26 @@
       vertical-align: top;
       display: inline-block;
     }
+  }
+}
+
+.card {
+  .cardHeader {
+    padding: 10px;
+
+    .btn {
+      background-position: center right 25px;
+    }
+
+    h3 {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  .faqContent {
+    padding: 10px;
+    transition: height 2s;
+    display: none;
   }
 }

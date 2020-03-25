@@ -10,12 +10,13 @@ import { BaseClientSideWebPart } from '@microsoft/sp-webpart-base';
 import * as strings from 'CoronaListWebPartStrings';
 import CoronaList from './components/CoronaList';
 import { ICoronaListProps } from './components/ICoronaListProps';
+import { sp } from '@pnp/sp/presets/all';
 
 export interface ICoronaListWebPartProps {
   description: string;
 }
 
-export default class CoronaListWebPart extends BaseClientSideWebPart <ICoronaListWebPartProps> {
+export default class CoronaListWebPart extends BaseClientSideWebPart<ICoronaListWebPartProps> {
 
   public render(): void {
     const element: React.ReactElement<ICoronaListProps> = React.createElement(CoronaList, {});
@@ -51,5 +52,14 @@ export default class CoronaListWebPart extends BaseClientSideWebPart <ICoronaLis
         }
       ]
     };
+  }
+
+  protected onInit(): Promise<void> {
+    return super.onInit().then(_ => {
+      // other init code may be present
+      sp.setup({
+        spfxContext: this.context
+      });
+    });
   }
 }
