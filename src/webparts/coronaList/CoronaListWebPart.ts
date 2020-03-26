@@ -10,10 +10,11 @@ import { BaseClientSideWebPart } from '@microsoft/sp-webpart-base';
 import * as strings from 'CoronaListWebPartStrings';
 import CoronaList from './components/CoronaList';
 import { ICoronaListProps } from './components/ICoronaListProps';
-import { sp } from '@pnp/sp/presets/all';
+import "@pnp/polyfill-ie11";
+import { sp } from '@pnp/sp';
 
 export interface ICoronaListWebPartProps {
-  description: string;
+  listName: string;
 }
 
 export default class CoronaListWebPart extends BaseClientSideWebPart<ICoronaListWebPartProps> {
@@ -28,7 +29,7 @@ export default class CoronaListWebPart extends BaseClientSideWebPart<ICoronaList
   }
 
   public render(): void {
-    const element: React.ReactElement<ICoronaListProps> = React.createElement(CoronaList, {});
+    const element: React.ReactElement<ICoronaListProps> = React.createElement(CoronaList, {listName: this.properties.listName});
 
     ReactDom.render(element, this.domElement);
   }
@@ -52,7 +53,7 @@ export default class CoronaListWebPart extends BaseClientSideWebPart<ICoronaList
             {
               groupName: strings.BasicGroupName,
               groupFields: [
-                PropertyPaneTextField('description', {
+                PropertyPaneTextField('listName', {
                   label: strings.DescriptionFieldLabel
                 })
               ]

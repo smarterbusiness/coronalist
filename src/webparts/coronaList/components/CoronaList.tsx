@@ -41,7 +41,7 @@ export default class CoronaList extends React.Component<ICoronaListProps, ICoron
 
   private loadFAQItems() {
     return sp.web.lists
-      .getByTitle("FAQ")
+      .getByTitle(this.props.listName)
       .items
       .orderBy("Abfolge")
       .get();
