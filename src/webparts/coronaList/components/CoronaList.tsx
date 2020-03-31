@@ -3,6 +3,8 @@ import styles from './CoronaList.module.scss';
 import { escape } from '@microsoft/sp-lodash-subset';
 import { ICoronaListProps } from './ICoronaListProps';
 import { ICoronaListState } from './ICoronaListState';
+import { sp } from "@pnp/sp";
+import CoronaCard from "./CoronaCard";
 
 export default class CoronaList extends React.Component<ICoronaListProps, ICoronaListState> {
   constructor(props: ICoronaListProps) {
@@ -11,46 +13,47 @@ export default class CoronaList extends React.Component<ICoronaListProps, ICoron
     this.state = {
       listItems: [
       ]
-    }
+    };
   }
 
-  componentDidMount() {
-    this.setState({
-      listItems: [
-        { title: "Test", body: "Lorem ipsum" },
-        { title: "Test", body: "Lorem ipsum" },
-        { title: "Test", body: "Lorem ipsum" }
-      ]
-    });
+  public componentDidMount() {
+      this.loadFAQItems()
+      .then(spListItems => {
+        this.setState(state => (
+          {
+            ...state,
+            listItems: spListItems.map(item => ({title: item.Title, body: item.Content}))
+          }
+        ));
+      });
   }
 
   public render(): React.ReactElement<ICoronaListProps> {
     return (
-      <div className="main">
+      <div className={styles.coronaList}>
         {this.state.listItems.length > 0 ?
-          this.state.listItems.map(item => {
-            return (
-              <div>
-                <details>
-                  <summary>{item.title}</summary>
-                  <div>{item.body}</div>
-                </details>
-              </div>
-            )
-          }) :
+          this.state.listItems.map((item) => <CoronaCard title={item.title} body={item.body}/>) :
           null
         }
       </div>
     );
   }
+
+  private loadFAQItems() {
+    return sp.web.lists
+      .getByTitle(this.props.listName)
+      .items
+      .orderBy("Abfolge")
+      .get();
+  }
 }
 
 
 export interface ISectionProps {
-  title: string
+  title: string;
 }
 
 export interface ISectionState {
-  open: boolean,
-  class: string
+  open: boolean;
+  class: string;
 }

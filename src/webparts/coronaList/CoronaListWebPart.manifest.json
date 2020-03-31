@@ -21,7 +21,7 @@
     "description": { "default": "Webpart um Content in Form einer Aufklappbaren Liste darzustellen" },
     "officeFabricIconFontName": "Page",
     "properties": {
-      "description": "CoronaList"
+      "listName": "FAQ"
     }
   }]
 }
