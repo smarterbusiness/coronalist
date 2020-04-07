@@ -21,7 +21,7 @@
 
   .cardHeaderCollapsed::after {
     content: "";
-    background-image: url("https://www.oesterreich.gv.at/.resources/brz-site-oesterreichgvat/webresources/img/coronavirus/plus.svg");
+    background-image: url("../../../assets/plus.svg");
     background-repeat: no-repeat;
     background-position-x: center;
     background-size: 40px 40px;
@@ -31,7 +31,7 @@
 
   .cardHeaderExpanded::after {
     content: "";
-    background-image: url("https://www.oesterreich.gv.at/.resources/brz-site-oesterreichgvat/webresources/img/coronavirus/minus.svg");
+    background-image: url("../../../assets/minus.svg");
     background-repeat: no-repeat;
     background-position-x: center;
     background-size: 40px 40px;
@@ -40,7 +40,7 @@
   }
 
   .faqContent {
-    transition: height 1s;
+    transition: height 0.5s;
     overflow-y: hidden;
 
     .cardBody {
