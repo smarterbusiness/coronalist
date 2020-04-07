@@ -1,10 +1,9 @@
-<<<<<<< HEAD
-# corona-list
+# Corona List SPFx Webpart
 
 This project uses [React](https://reactjs.org).
 
-> This is where you include your project's documentation.
-
+This webpart should be used to display a FAQ, especially in hard times like these where you want to inform your staff over sharepoint.
+More information about it [here](https://www.smarterbusiness.at/faq-informationsseite-zur-corona-krise-mittels-sharepoint-teams-erstellen)
 ## Global dependencies
 
 Requires Gulp globally installed:
