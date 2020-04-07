@@ -1,0 +1,50 @@
+@import "~office-ui-fabric-react/dist/sass/References.scss";
+
+.coronaCard {
+  margin-top:15px;
+  margin-bottom:15px;
+  background-color: white;
+
+  .cardHeader {
+    padding: 5px;
+    cursor: pointer;
+
+    h3 {
+      display: flex;
+      justify-content: space-between;
+      span {
+        width:100%;
+        margin:auto;
+      }
+    }
+  }
+
+  .cardHeaderCollapsed::after {
+    content: "";
+    background-image: url("../../../assets/plus.svg");
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-size: 40px 40px;
+    height: 40px;
+    width: 100px;
+  }
+
+  .cardHeaderExpanded::after {
+    content: "";
+    background-image: url("../../../assets/minus.svg");
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-size: 40px 40px;
+    height: 40px;
+    width: 100px;
+  }
+
+  .faqContent {
+    transition: height 0.5s;
+    overflow-y: hidden;
+
+    .cardBody {
+      padding: 0px 10px 10px 10px;
+    }
+  }
+}
