@@ -13,6 +13,7 @@ To use this Webpart, add build and package it and add it to your AppCatalog!
 
 Then create a list (you can pick a Title yourself) and add the following columns:
 ![](CoronaListColumns.png)
+
 The "Content" column should have RichText disabled (only PlainText)
 
 Then add some data like here:
