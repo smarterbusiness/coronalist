@@ -24,7 +24,7 @@
     "@pnp/odata": "^1.3.4",
     "@pnp/polyfill-ie11": "^1.0.2",
     "@pnp/sp": "^1.3.4",
-    "@pnp/nodejs": "^1.3.4",
+    "@pnp/nodejs": "^3.16.0",
     "@types/es6-promise": "0.0.33",
     "@types/react": "16.8.8",
     "@types/react-dom": "16.8.3",
